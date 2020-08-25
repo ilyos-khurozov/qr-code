@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR-Code</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#create-tab">Create</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#scan-tab">Scan</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="create-tab" class="tab-pane border border-top-0 rounded-bottom container py-2 active">
+                    <textarea id="text" class="form-control my-3">Some text here</textarea>
+                    <button class="btn btn-outline-success btn-block my-3" id="btn-create" onclick="getQR()">Create</button>
+                    <img id="created-img" class="d-block mx-auto my-3">
+                </div>
+                <div id="scan-tab" class="tab-pane border border-top-0 rounded-bottom container py-2">
+                    <div class="custom-file my-3">
+                        <input type="file" class="custom-file-input" id="file" onchange="change(this)" accept="image/png">
+                        <label class="custom-file-label" for="file">Choose file</label>
+                    </div>
+                    <img id="preview" class="d-block mx-auto my-3">
+                    <button class="btn btn-outline-primary btn-block my-3 d-none" id="btn-scan" onclick="scanQR()">Scan</button>
+                    <textarea id="scanned-text" class="form-control d-none my-3" readonly></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
